@@ -2,79 +2,89 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
+
     <CheckBox
         android:id="@+id/cb_toggle_favorite"
-        android:button="@drawable/checkbox_selector"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:focusable="false"
+        android:button="@drawable/checkbox_selector"
         android:checked="false"
-        />
-    <RelativeLayout
-        android:gravity="center_vertical"
-        android:paddingLeft="5dp"
+        android:focusable="false"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_weight="1.2">
+        android:layout_marginTop="5dp"
+        android:layout_weight="1.2"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+
         <TextView
-            android:textSize="15sp"
             android:id="@+id/FundName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="基金名称"
-            android:singleLine="true"/>
+            android:textSize="15sp" />
+
         <TextView
-            android:textSize="12sp"
             android:id="@+id/FundCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/FundName"
             android:text="000001"
-            android:layout_below="@id/FundName" />
-    </RelativeLayout>
+            android:textSize="12sp" />
+    </LinearLayout>
+
     <LinearLayout
-        android:gravity="right"
-        android:orientation="vertical"
         android:id="@+id/LinearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_weight="0.5"
+        android:layout_marginRight="35dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="35dp">
+        android:layout_weight="0.5"
+        android:gravity="right"
+        android:orientation="vertical">
+
         <TextView
-            android:textSize="16sp"
             android:id="@+id/FundNetValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="0.7980"
-            android:singleLine="true" />
+            android:textSize="16sp" />
+
         <TextView
-            android:textSize="10sp"
-            android:textColor="#ff666666"
             android:id="@+id/FundCurrDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="2015-7-22"
-            android:singleLine="true" />
+            android:textColor="#ff666666"
+            android:textSize="10sp" />
     </LinearLayout>
-    <RelativeLayout
-        android:layout_gravity="right"
+
+    <LinearLayout
         android:layout_width="75dp"
         android:layout_height="40dp"
-        android:layout_marginRight="12dp"
-        >
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp">
+
         <TextView
-            android:textSize="18sp"
-            android:gravity="center"
             android:id="@+id/FundInCreasePercent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
             android:background="@drawable/zhang"
-            android:textColor="@android:color/white"
-            android:text="+0.76%"
+            android:gravity="center"
             android:singleLine="true"
-            android:layout_centerInParent="true" />
-    </RelativeLayout>
+            android:text="+0.76%"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
 </LinearLayout>
 
