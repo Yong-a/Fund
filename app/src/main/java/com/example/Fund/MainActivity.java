@@ -49,13 +49,14 @@ public class MainActivity extends Activity {
     private ImageView ivNetValue;
     private Button btRange;
     private ImageView ivRange;
-    private ArrayList<Fund> fundList = null;
-    private ArrayList<Fund> fundList2 = null;
+    private ArrayList<Fund> fundList;
+    private ArrayList<Fund> fundList2;
     private int netValueType = 0;//净值类型，0为最新净值，1为累计净值
     private int rangeType = 0;//涨跌类型 0为降序, 1升序
     private SwipeRefreshLayout mSwipeLayout;
     private RadioGroup rgFundType;
     private ProgressBar pbList;
+    private long exitTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,7 +188,6 @@ public class MainActivity extends Activity {
                     clickTypeName(selectRadioBtn());
                 } else {
                     Toast.makeText(MainActivity.this, "数据为空，请查看网络是否连接", Toast.LENGTH_LONG).show();
-                    finish();
                 }
             }
         };
@@ -290,6 +290,16 @@ public class MainActivity extends Activity {
                 break;
         }
         return selectName;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {// System.currentTimeMillis()无论何时调用，肯定大于2000
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+        }
     }
 }
 
