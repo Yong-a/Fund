@@ -108,13 +108,15 @@ public class Tools {
                 for (int j = i + 1; j < fundList.size(); j++) {
                     if(RangeType == 1){
                         if(fundList.get(i).fundincreasepercent>fundList.get(j).fundincreasepercent){
+                            Fund fund = fundList.get(i);
                             fundList.set(i, fundList.get(j));
-                            fundList.set(j, fundList.get(i));
+                            fundList.set(j, fund);
                         }
                     }else{
                         if(fundList.get(i).fundincreasepercent<fundList.get(j).fundincreasepercent){
+                            Fund fund = fundList.get(i);
                             fundList.set(i, fundList.get(j));
-                            fundList.set(j, fundList.get(i));
+                            fundList.set(j, fund);
                         }
                     }
                 }

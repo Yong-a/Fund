@@ -47,10 +47,9 @@ public class MainActivity extends Activity {
     private Button btCurrency;
     private Button btNetValue;
     private ImageView ivNetValue;
-    private Button btRange;
     private ImageView ivRange;
-    private ArrayList<Fund> fundList;
-    private ArrayList<Fund> fundList2;
+    private ArrayList<Fund> fundList = null;
+    private ArrayList<Fund> fundList2 = null;
     private int netValueType = 0;//净值类型，0为最新净值，1为累计净值
     private int rangeType = 0;//涨跌类型 0为降序, 1升序
     private SwipeRefreshLayout mSwipeLayout;
@@ -73,7 +72,6 @@ public class MainActivity extends Activity {
         btCurrency = (Button) findViewById(R.id.rb_currency);
         btNetValue = (Button) findViewById(R.id.bt_netvalue);
         ivNetValue = (ImageView) findViewById(R.id.iv_netValue);
-        btRange = (Button) findViewById(R.id.bt_range);
         ivRange = (ImageView) findViewById(R.id.iv_range);
         pbList = (ProgressBar) findViewById(R.id.pb_list);
         rgFundType = (RadioGroup) findViewById(R.id.rg_type);
@@ -172,7 +170,7 @@ public class MainActivity extends Activity {
                 return map;
             }
 
-            //doInBackgroup执行结束后
+            //doInBackground执行结束后
             @Override
             protected void onPostExecute(HashMap<String, Object> result) {
                 pbList.setVisibility(View.GONE);
